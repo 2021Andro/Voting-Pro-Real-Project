@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".Activitys.VotingBallotActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image_VB"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvName_VB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Status"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvStatus_VB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/today_subject"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvTodaySubject_VB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/etComments_VB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="25dp"
+        android:hint="@string/enter_your_comments_from_this_subject_on_25_character" />
+
+    <!-- Voting Button Layout -->
+    <TextView
+        android:id="@+id/tvMsg_VB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:textStyle="bold"
+        android:text="The voting of this subject already completed"
+        android:textSize="25sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:id="@+id/VotingBallotLayout_VA"
+
+        >
+
+        <ImageButton
+            android:id="@+id/btnLike_VB"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#1D9854"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/ic_thumb_up"
+            />
+
+        <ImageButton
+            android:id="@+id/btnNeutral_VB"
+            android:layout_width="0dp"
+            android:layout_height="48sp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#981B79"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/ic_neutral"/>
+
+        <ImageButton
+            android:id="@+id/btnDislike_VB"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#E00000"
+            android:contentDescription="@string/voting_pro"
+            app:srcCompat="@drawable/ic_thumb_down"
+            tools:ignore="UsingOnClickInXml" />
+    </LinearLayout>
+
+
+</LinearLayout>

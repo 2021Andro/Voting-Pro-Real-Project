@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#F4EFF0"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="20sp"
+    android:elevation="20sp"
+    app:contentPadding="5dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image_CAL"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:id="@+id/tvName_CAL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/profile_image_CAL"
+            android:textColor="@color/black"
+            android:layout_marginStart="13dp"
+            android:textSize="16sp"
+            android:text="Yogesh Lohot" />
+
+        <TextView
+            android:id="@+id/tvStatus_CAL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvName_CAL"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="Home Minister"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSubjectLable_CAL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="18dp"
+            android:layout_toRightOf="@id/profile_image_CAL"
+            android:text="Today Subject"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTodaySubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSubjectLable_CAL"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="18dp"
+            android:layout_toRightOf="@id/profile_image_CAL"
+            android:text="Handicap"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvStatus_CAL"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/ivLike"
+                android:layout_width="0dp"
+                android:layout_height="30sp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_thumb_up" />
+
+            <TextView
+                android:id="@+id/tvLike_CAL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="0" />
+
+
+            <ImageView
+                android:id="@+id/ivNeutral"
+                android:layout_width="0dp"
+                android:layout_height="30sp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_neutral" />
+
+            <TextView
+                android:id="@+id/tvNeutral_CAL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="0" />
+
+
+            <ImageView
+                android:id="@+id/ivDiclick"
+                android:layout_width="0dp"
+                android:layout_height="30sp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_thumb_down" />
+
+            <TextView
+                android:id="@+id/tvDislike_CAL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="0" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Voting Pro</string>
+    <string name="voting_pro">Voting Pro</string>
+    <string name="voting_category">Voting Category</string>
+    <string name="enter_your_comments_from_this_subject_on_25_character">Enter your comments from this subject on 25 character</string>
+    <string name="today_subject">Today Subject</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_the_subject">Enter The Subject</string>
+    <string name="enter_your_status">Enter Your Status</string>
+    <string name="register_a">Register A</string>
+    <string name="register">Register</string>
+    <string name="set_otp">Set Otp</string>
+    <string name="enter_the_otp">Enter the otp</string>
+    <string name="enter_your_name_R">Enter your name</string>
+    <string name="enter_the_email_id">Enter the email id</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="enter_your_pin_code">Enter your pin code</string>
+    <string name="enter_your_aadhar_card_number">Enter your aadhar card number</string>
+    <string name="enter_your_register_phone_number">Enter your register phone number</string>
+    <string name="login">Login</string>
+    <string name="enter_your_subject">Enter Your Subject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="category">Category</string>
+    <string name="choice_the_day">Choice The Day</string>
+    <string name="user_history">User History</string>
+    <string name="all_history">All History</string>
+    <string name="chose_birth_day">Month/Day/Year</string>
+</resources>

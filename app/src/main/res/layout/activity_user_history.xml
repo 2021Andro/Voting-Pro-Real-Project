@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activitys.Showing_History.User_History_Activity">
+
+
+    <TextView
+        android:id="@+id/tvCategoryName_AH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/user_history" />
+
+    <Button
+        android:id="@+id/btnShowDay_AUH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:textAllCaps="false"
+        android:onClick="btnOnGoCalendarActivity2"
+        android:text="@string/choice_the_day" />
+
+    <TextView
+        android:id="@+id/tvShowDay_AH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:text="Show Day" />
+</LinearLayout>
