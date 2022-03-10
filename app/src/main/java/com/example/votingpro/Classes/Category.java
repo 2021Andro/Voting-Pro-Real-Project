@@ -24,9 +24,10 @@ public class Category implements Serializable {
         CategoryName = categoryName;
     }
 
-    public Category(int id, String categoryName) {
+    public Category(int id, String categoryName, String profileImage) {
         Id = id;
         CategoryName = categoryName;
+        ProfileImage = profileImage;
     }
 
     public String getCategoryDbId() {

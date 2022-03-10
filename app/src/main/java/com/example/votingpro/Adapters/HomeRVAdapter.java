@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.votingpro.Classes.Category;
 import com.example.votingpro.Interfacese.RcvClickEvent;
 import com.example.votingpro.R;
@@ -58,26 +59,7 @@ public class HomeRVAdapter extends RecyclerView.Adapter<HomeRVAdapter.CategoryVi
         holder.tvName.setText(categories.getCategoryName());
 
         // 0, education 1, political 2, social 3, entertainment 4, local
-        switch (categories.getId())
-        {
-
-            case 0:
-                holder.ivCategory.setImageResource(R.drawable.education);
-                break;
-            case 1:
-                holder.ivCategory.setImageResource(R.drawable.political);
-                break;
-            case 2:
-                holder.ivCategory.setImageResource(R.drawable.social);
-                break;
-            case 3:
-                holder.ivCategory.setImageResource(R.drawable.ent);
-                break;
-            case 4:
-                holder.ivCategory.setImageResource(R.drawable.local);
-                break;
-
-        }
+        Glide.with(holder.itemView.getContext()).asBitmap().load(categories.getProfileImage()).into(holder.ivCategory);
 
 
     }

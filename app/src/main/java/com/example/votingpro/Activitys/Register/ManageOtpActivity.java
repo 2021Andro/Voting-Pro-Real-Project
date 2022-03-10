@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -25,10 +26,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.Random;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class ManageOtpActivity extends AppCompatActivity {
@@ -39,6 +43,8 @@ public class ManageOtpActivity extends AppCompatActivity {
     private String otpId;
     private EditText etOtp;
     private String inOtp;
+
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +57,12 @@ public class ManageOtpActivity extends AppCompatActivity {
 
         phoneNumber = userInformation.getPhoneNumber();
 
+        imageUri = Uri.parse(userInformation.getProfileImage());
+
         initialOtp();
+
+        Log.d(TAG, "3 ManageOtpActivity --> Image Uri : "+userInformation.getProfileImage());
+        Log.d(TAG, "4 ManageOtpActivity --> Image Uri : "+imageUri);
 
 
     }
@@ -112,6 +123,9 @@ public class ManageOtpActivity extends AppCompatActivity {
                             finish();
 
 
+
+
+
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -123,6 +137,40 @@ public class ManageOtpActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void uploadUserInformation(UserInformation userInfo) {
+
+
+        Uri imageUri = Uri.parse(userInformation.getProfileImage());
+
+        StorageReference imagePath = MyApp.myStorage.getReference("Profile Image/" + userInfo.getUserId());
+
+        imagePath.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                        imagePath.getDownloadUrl()
+                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+
+                                        userInfo.setProfileImage(uri.toString());
+
+                                        MyApp.myStore.collection("User Profile").add(userInfo);
+
+                                        Intent intent = new Intent(getApplicationContext(), Home_Activity.class);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }
+                                });
+
+                    }
+                });
+
+
     }
 
 

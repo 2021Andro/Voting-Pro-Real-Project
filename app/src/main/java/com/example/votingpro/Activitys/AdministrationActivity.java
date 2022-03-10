@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.votingpro.Classes.Category;
 import com.example.votingpro.Classes.MyApp;
 import com.example.votingpro.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -39,6 +40,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
+import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -247,7 +249,7 @@ public class AdministrationActivity extends AppCompatActivity {
         dialog.show();
 
 
-        imagePath = MyApp.myStorage.getReference("Profile Image / " + new Random().nextInt(5) + ".png");
+        imagePath = MyApp.myStorage.getReference("Category Image/"+selectedCategoryItem+"/"+ UUID.randomUUID());
 
         imagePath.putFile(imageUri)
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -278,16 +280,23 @@ public class AdministrationActivity extends AppCompatActivity {
                         category.setDislikeVotes(0);
                         category.setAllVotes(0);
 
-                        MyApp
-                                .myStore
-                                .collection(selectedCategoryItem)
-                                .add(category);
+                        imagePath.getDownloadUrl()
+                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        category.setProfileImage(uri.toString());MyApp
+                                                .myStore
+                                                .collection(selectedCategoryItem)
+                                                .add(category);
 
-                        resetView();
+                                        resetView();
 
 
-                        startActivity(new Intent(getApplicationContext(), Home_Activity.class));
-                        finish();
+                                        startActivity(new Intent(getApplicationContext(), Home_Activity.class));
+                                        finish();
+                                    }
+                                });
+
                     }
 
 

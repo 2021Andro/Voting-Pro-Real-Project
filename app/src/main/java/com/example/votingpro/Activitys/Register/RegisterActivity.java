@@ -51,12 +51,6 @@ public class RegisterActivity extends AppCompatActivity {
     private CountryCodePicker ccp;
     private String name, email, phoneNumber, pinCode, birthday;
 
-    private CircleImageView ivProfileImage;
-    private Uri imageUri;
-    private int imageCode = 1;
-    private boolean isImageSelect = false;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,8 +66,6 @@ public class RegisterActivity extends AppCompatActivity {
             finish();
 
         }
-
-        ivProfileImage = findViewById(R.id.profile_image_R);
 
         tfName = findViewById(R.id.tfName_R);
         tfEmail = findViewById(R.id.tfEmail_R);
@@ -97,44 +89,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        ivProfileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(intent, "profile image"), imageCode);
-            }
-        });
-
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-
-        if (requestCode == imageCode)
-        {
-
-            if (resultCode == RESULT_OK)
-            {
-
-                imageUri = data.getData();
-
-                ivProfileImage.setImageURI(imageUri);
-
-            }
-            if (resultCode == RESULT_CANCELED)
-            {
-                ivProfileImage.setImageResource(R.drawable.profile_image);
-            }
-
-        }
-
-
-
-
-    }
 
     // on the bottom related code
     public void btnOnRegistration(View view) {
@@ -166,12 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
         phoneNumber = ccp.getFullNumberWithPlus().toString().trim();
         pinCode = etPinCode.getText().toString().trim();
 
-        if (!isImageSelect)
-        {
-            Toast.makeText(this, "Image Select", Toast.LENGTH_SHORT).show();
-            result = false;
-        }
-        else if (name.isEmpty())
+        if (name.isEmpty())
         {
             etName.setError("Enter your name");
             result = false;

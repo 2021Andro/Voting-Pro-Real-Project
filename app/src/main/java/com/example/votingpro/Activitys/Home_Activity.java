@@ -76,11 +76,11 @@ public class Home_Activity extends AppCompatActivity implements RcvClickEvent{
         // 0, education 1, political 2, social 3, entertainment 4, local
         Category education, political, social, entertainment, local;
 
-        education = new Category(0, "Education");
-        political = new Category(1, "Political");
-        social = new Category(2, "Social");
-        entertainment = new Category(3, "Entertainment");
-        local = new Category(4, "Local");
+        education = new Category(0, "Education", "https://firebasestorage.googleapis.com/v0/b/voting-2c85b.appspot.com/o/Main%20Category%20Name%2Feducation.png?alt=media&token=dd83b725-314a-475d-85c6-71a500108fe8");
+        political = new Category(1, "Political", "https://firebasestorage.googleapis.com/v0/b/voting-2c85b.appspot.com/o/Main%20Category%20Name%2Fpolitical.png?alt=media&token=1f55185e-1d8a-4977-8aec-a9fe7938ebf5");
+        social = new Category(2, "Social", "https://firebasestorage.googleapis.com/v0/b/voting-2c85b.appspot.com/o/Main%20Category%20Name%2Fsocial.png?alt=media&token=41323d8f-67aa-4f36-ae6c-4a35ae9004f5");
+        entertainment = new Category(3, "Entertainment", "https://firebasestorage.googleapis.com/v0/b/voting-2c85b.appspot.com/o/Main%20Category%20Name%2Fent.png?alt=media&token=c9e965a7-4f08-4c25-bbf2-ed49b6594636");
+        local = new Category(4, "Local", "https://firebasestorage.googleapis.com/v0/b/voting-2c85b.appspot.com/o/Main%20Category%20Name%2Ffamily.png?alt=media&token=f00fc3a3-f33b-4bc0-95ef-a6dc01b7248e");
 
         categoriesList.add(education);
         categoriesList.add(political);
